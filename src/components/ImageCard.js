@@ -2,7 +2,6 @@
 import React from 'react';
 
 function ImageCard({ data }) {
-  console.log(data);
   return (
     <div class="bg-white py-6 sm:py-8 lg:py-12">
       <p class="mb-2 font-semibold text-indigo-500 md:mb-3 lg:text-lg">{data.title}</p>
