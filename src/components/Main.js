@@ -1,8 +1,8 @@
 // Main.js
-import React, { useState } from 'react';
-import axios from 'axios';
-import ImageCard from './ImageCard';
-import Error from './Error';
+import React, { useState } from "react";
+import axios from "axios";
+import ImageCard from "./ImageCard";
+import Error from "./Error";
 
 // Nasa API key
 const apiKey = process.env.REACT_APP_NASA_API_KEY;
@@ -11,25 +11,26 @@ function Main() {
     // Nasaから取得したデータを格納するためのstate
     const [data, setData] = useState([]);
     // 日付指定をするためのstate
-    const [date, setDate] = useState('');
+    const [date, setDate] = useState("1999-09-19");
     // エラーメッセージを格納するためのstate
-    const [errorMessage, setErrorMessage] = useState('');
+    const [errorStatus, setErrorStatus] = useState(false);
 
     // Nasa APIを叩くための関数
     const fetchData = async (date) => {
         try {
             // Nasa APIを叩いて、取得したデータを格納
-            const result = await axios.get('https://api.nasa.gov/planetary/apod', {
+            const result = await axios.get("https://api.nasa.gov/planetary/apod", {
                 params: {
                     api_key: apiKey,
                     date: date, // 入力された日付を使用
                 },
             });
+            setErrorStatus(false);
             setData(result.data);
-            setErrorMessage('');
         } catch (error) {
-            console.error('Error fetching data from NASA API:', error);
-            setErrorMessage('データの取得に失敗しました。代わりに僕の隣で眠る猫の画像を見せてあげます。再度検索してください');
+            console.error("Error fetching data from NASA API:", error);
+            setData([]);
+            setErrorStatus(true);
         }
     };
 
@@ -45,14 +46,29 @@ function Main() {
     };
 
     return (
-        <div >
-            <div className="container mx-auto p-4 flex-row">
-                <h1 className="text-3xl font-bold">NASAの写真を検索しよう！</h1>
-                <input type="date" onChange={changeDate} className="mt-4 p-2 border border-gray-300 rounded" />
+        <div class="border-t border-gray-200 ">
+                <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                <p class="mb-2 font-semibold text-indigo-500 md:mb-3 lg:text-lg">星を眺める</p>
+                        <h2 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">NASAの写真を検索しよう！</h2>
+                </div>
+            <div class="container px-5 py-8 flex flex-wrap mx-auto items-center justify-end">
+                <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+                    <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
+                        <input
+                            type="date"
+                            onChange={changeDate}
+                            id="footer-field"
+                            name="footer-field"
+                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                        />
+                    </div>
+                    <button onClick={() => handleClick(date)} class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                        検索
+                    </button>
+                </div>
             </div>
-            <button onClick={() => handleClick(date)} className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">検索</button>
-            {errorMessage && <Error />}
-            {errorMessage || <ImageCard data={data} />}
+                {errorStatus && <Error />}
+                {data && <ImageCard data={data} />}
         </div>
     );
 }
