@@ -48,8 +48,7 @@ function Main() {
     return (
         <div class="border-t border-gray-200 ">
                 <div class="mx-4 px-4 md:px-8">
-                <p class="mb-2 font-semibold text-indigo-500 md:mb-3 lg:text-lg">星を眺める</p>
-                        <h3 class="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">宇宙を覗いてみよう！</h3>
+                        <h3 class="mt-10 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">宇宙を覗いてみよう！</h3>
                 </div>
             <div class="container px-5 py-8 flex flex-wrap mx-auto items-center justify-end">
                 <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
