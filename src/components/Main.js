@@ -28,7 +28,6 @@ function Main() {
             setErrorStatus(false);
             setData(result.data);
         } catch (error) {
-            console.error("Error fetching data from NASA API:", error);
             setData([]);
             setErrorStatus(true);
         }
@@ -36,7 +35,6 @@ function Main() {
 
     // 検索ボタンを押した時にfetchData関数を実行
     const handleClick = (date) => {
-        console.log(date);
         fetchData(date);
     };
 
