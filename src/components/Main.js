@@ -45,9 +45,11 @@ function Main() {
     };
 
     return (
-        <div>
-            <h1 className="text-3xl font-bold">NASAの写真を検索しよう！</h1>
-            <input type="date" onChange={changeDate} className="mt-4 p-2 border border-gray-300 rounded" />
+        <div >
+            <div className="container mx-auto p-4 flex-row">
+                <h1 className="text-3xl font-bold">NASAの写真を検索しよう！</h1>
+                <input type="date" onChange={changeDate} className="mt-4 p-2 border border-gray-300 rounded" />
+            </div>
             <button onClick={() => handleClick(date)} className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">検索</button>
             {errorMessage && <Error />}
             {errorMessage || <ImageCard data={data} />}
