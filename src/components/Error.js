@@ -4,6 +4,7 @@ import cat from './40428.jpg'
 function Error() {
     return (
         <div class="bg-white py-6 sm:py-8 lg:py-12">
+            <p class="mb-2 font-semibold text-indigo-500 md:mb-3 lg:text-lg">世界一かわいい猫</p>
         <div class="relative mb-6 mx-auto overflow-hidden rounded-lg bg-gray-100 shadow-lg md:mb-8 items-center">
           <img src={cat} loading="lazy" alt='ねこ' class="h-3/6 w-4/6 object-cover object-center mx-auto" />
         </div>
