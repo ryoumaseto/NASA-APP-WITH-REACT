@@ -4,7 +4,7 @@ import cat from './40428.jpg'
 function Error() {
     return (
         <div>
-            <img src={cat} alt="Cat" />
+            <img src={cat} width={1000} alt="Cat" />
         </div>
     );
 }
