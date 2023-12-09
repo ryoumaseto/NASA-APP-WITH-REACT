@@ -66,8 +66,7 @@ function Main() {
                 </div>
             </div>
             <div class="mt-0 mx-4 px-4 md:px-8">
-                {errorStatus && <Error />}
-                {data && <ImageCard data={data} />}
+                {errorStatus && <Error /> || <ImageCard data={data} />}
             </div>
         </div>
     );
