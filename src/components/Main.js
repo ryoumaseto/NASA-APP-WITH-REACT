@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import ImageCard from './ImageCard';
+import Error from './Error';
 
 // Nasa API key
 const apiKey = process.env.REACT_APP_NASA_API_KEY;
@@ -11,6 +12,8 @@ function Main() {
     const [data, setData] = useState([]);
     // 日付指定をするためのstate
     const [date, setDate] = useState('');
+    // エラーメッセージを格納するためのstate
+    const [errorMessage, setErrorMessage] = useState('');
 
     // Nasa APIを叩くための関数
     const fetchData = async (date) => {
@@ -23,8 +26,10 @@ function Main() {
                 },
             });
             setData(result.data);
+            setErrorMessage('');
         } catch (error) {
             console.error('Error fetching data from NASA API:', error);
+            setErrorMessage('データの取得に失敗しました。代わりに僕の隣で眠る猫の画像を見せてあげます。再度検索してください');
         }
     };
 
@@ -43,7 +48,8 @@ function Main() {
         <div>
             <input type="date" onChange={changeDate} />
             <button onClick={() => handleClick(date)}>検索</button>
-            <ImageCard data={data} />
+            {errorMessage && <Error />}
+            {errorMessage || <ImageCard data={data} />}
         </div>
     );
 }
