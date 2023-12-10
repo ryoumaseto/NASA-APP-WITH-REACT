@@ -19,15 +19,19 @@ function Main() {
     // Nasa APIを叩くための関数
     const fetchData = async (date) => {
         try {
-            // Nasa APIを叩いて、取得したデータを格納
-            const result = await axios.get("https://api.nasa.gov/planetary/apod", {
+            const response = await axios.get("https://api.nasa.gov/planetary/apod", {
                 params: {
                     api_key: apiKey,
-                    date: date, // 入力された日付を使用
+                    date: date,
                 },
+                headers: {
+                    Accept: "application/json",
+                },
+                responseType: "json",
             });
+    
             setErrorStatus(false);
-            setData(result.data);
+            setData(response.data);
         } catch (error) {
             setData([]);
             setErrorStatus(true);
@@ -47,26 +51,26 @@ function Main() {
     return (
         <>
         <Header />
-        <div class="border-t border-gray-200 ">
+        <div className="border-t border-gray-200 ">
             
-            <div class="container px-5 py-8 flex flex-wrap mx-auto items-center justify-end">
-                <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
-                    <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
-                        <label for="footer-field" class="leading-7 text-sm text-gray-600">検索すると画像が表示されます</label>
+            <div className="container px-5 py-8 flex flex-wrap mx-auto items-center justify-end">
+                <div className="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+                    <div className="relative sm:w-64 w-40 sm:mr-4 mr-2">
+                        <label htmlFor="footer-field" className="leading-7 text-sm text-gray-600">検索すると画像が表示されます</label>
                         <input
                             type="date"
                             onChange={changeDate}
                             id="footer-field"
                             name="footer-field"
-                            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                            className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                         />
                     </div>
-                    <button onClick={() => handleClick(date)} class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                    <button onClick={() => handleClick(date)} className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                         検索
                     </button>
                 </div>
             </div>
-            <div class="mt-0 mx-4 px-4 md:px-8">
+            <div className="mt-0 mx-4 px-4 md:px-8">
                 {(errorStatus && <Error />) || <ImageCard data={data} />}
             </div>
         </div>

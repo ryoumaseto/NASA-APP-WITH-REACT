@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MarsRoverForm = ({ roverName, sol, camera, setRoverName, setSol, setCamera ,getMarsRoverPhotos}) => {
+const MarsRoverForm = ({ roverName, sol, camera, setRoverName, setSol, setCamera ,fetchMarsRoverData}) => {
     return (
         <div>
             <form>
@@ -12,7 +12,7 @@ const MarsRoverForm = ({ roverName, sol, camera, setRoverName, setSol, setCamera
 
                 <label htmlFor="camera">Camera:</label>
                 <input type="text" id="camera" value={camera} onChange={(e) => setCamera(e.target.value)} />
-                <button type="submit" onClick={getMarsRoverPhotos}>検索</button>
+                <button type="submit" onClick={fetchMarsRoverData}>検索</button>
             </form>
         </div>
     )
