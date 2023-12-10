@@ -31,7 +31,7 @@ const MarsRover = () => {
         <Header />
         <div className="mars-rover border-t border-gray-200">
             <h2 className="mt-5 mb-2 font-semibold text-indigo-500 md:mb-3 lg:text-lg">Mars Rover Photos</h2>
-            <div className="mr-20 flex justify-end">
+            <div className="mr-20 flex justify-end mb-10">
                 {errorStatus || <MarsRoverForm
                     setRoverName={setRoverName}
                     setPages={setPages}
