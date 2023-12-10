@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import ImageCard from "./ImageCard";
 import Error from "./Error";
+import Header from "../header/Header";
 
 // Nasa API key
 const apiKey = process.env.REACT_APP_NASA_API_KEY;
@@ -44,10 +45,10 @@ function Main() {
     };
 
     return (
+        <>
+        <Header />
         <div class="border-t border-gray-200 ">
-                <div class="mx-4 px-4 md:px-8">
-                        <h3 class="mt-10 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">宇宙を覗いてみよう！</h3>
-                </div>
+            
             <div class="container px-5 py-8 flex flex-wrap mx-auto items-center justify-end">
                 <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
                     <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
@@ -69,6 +70,7 @@ function Main() {
                 {(errorStatus && <Error />) || <ImageCard data={data} />}
             </div>
         </div>
+        </>
     );
 }
 

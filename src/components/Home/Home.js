@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Photo from "./Photo";
+import Header from "../header/Header";
 
 const Home = () => {
   // Nasa API key
@@ -35,16 +36,14 @@ const Home = () => {
     };
 
     return (
+        <>
+        <Header />
         <div class="bg-white py-6 sm:py-8 lg:py-12">
             <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div class="mx-auto flex max-w-xl flex-col items-center text-center">
-                    <p class="mb-4 font-semibold text-indigo-500 md:mb-6 md:text-lg xl:text-xl">
+                    <p class="mb-4 font-semibold text-indigo-500 sm:text-4xl md:mb-12 md:text-5xl">
                         Welcome to Space
                     </p>
-
-                    <h4 class="mb-8 text-3xl font-bold text-black sm:text-4xl md:mb-12 md:text-5xl">
-                        宇宙を覗いてみよう！
-                    </h4>
 
                     {errorStatus && <Photo data={data} />}
 
@@ -64,6 +63,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
