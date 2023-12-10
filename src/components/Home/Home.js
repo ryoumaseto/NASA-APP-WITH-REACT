@@ -24,11 +24,11 @@ const Home = () => {
                             </button>
                         </Link>
 
-                        {/* <Link to="/mars">
+                        <Link to="/mars">
                             <button className="inline-block rounded-lg bg-red-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base">
                                 Mars Rover
                             </button>
-                        </Link> */}
+                        </Link>
                     </div>
                 </div>
             </div>

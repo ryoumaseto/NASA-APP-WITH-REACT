@@ -1,19 +1,56 @@
 import React from 'react'
 
-const MarsRoverForm = ({ roverName, sol, camera, setRoverName, setSol, setCamera ,fetchMarsRoverData}) => {
+const MarsRoverForm = ({ sol, camera, setSol, setCamera, fetchData }) => {
+    const cameras = [
+        {
+            name: "FHAZ",
+            full_name: "Front Hazard Avoidance Camera"
+        },
+        {
+            name: "NAVCAM",
+            full_name: "Navigation Camera"
+        },
+        {
+            name: "MAST",
+            full_name: "Mast Camera"
+        },
+        {
+            name: "CHEMCAM",
+            full_name: "Chemistry and Camera Complex"
+        },
+        {
+            name: "MAHLI",
+            full_name: "Mars Hand Lens Imager"
+        },
+        {
+            name: "MARDI",
+            full_name: "Mars Descent Imager"
+        },
+        {
+            name: "RHAZ",
+            full_name: "Rear Hazard Avoidance Camera"
+        }
+    ];
+
     return (
-        <div>
-            <form>
-                <label htmlFor="roverName">Rover Name:</label>
-                <input type="text" id="roverName" value={roverName} onChange={(e) => setRoverName(e.target.value)} />
+        <div className='right-20'>
+            <div className='flex items-center'>
+                <label className='ml-20 font-sans' htmlFor="sol">Sol:</label>
+                <input type="number" className="ml-5 rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10" id="sol" value={sol} onChange={(e) => setSol(e.target.value)} />
 
-                <label htmlFor="sol">Sol:</label>
-                <input type="number" id="sol" value={sol} onChange={(e) => setSol(e.target.value)} />
+                <label className="ml-20 font-sans" htmlFor="camera">Camera:</label>
+                <select id="camera" className="ml-5 rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10" value={camera} onChange={(e) => setCamera(e.target.value)}>
+                    {cameras.map((camera) => (
+                        <option key={camera.name} value={camera.name}>
+                            {camera.full_name}
+                        </option>
+                    ))}
+                </select>
 
-                <label htmlFor="camera">Camera:</label>
-                <input type="text" id="camera" value={camera} onChange={(e) => setCamera(e.target.value)} />
-                <button type="submit" onClick={fetchMarsRoverData}>検索</button>
-            </form>
+                <button onClick={() => fetchData()} className="ml-3 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                    検索
+                </button>
+            </div>
         </div>
     )
 }
