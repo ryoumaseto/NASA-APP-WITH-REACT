@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <>
         <Header />
-        <div className="bg-white py-6 sm:py-8 lg:py-12">
+        <div className="bg-white py-6 sm:py-8 lg:py-12 border-t border-gray-200">
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div className="mx-auto flex max-w-xl flex-col items-center text-center">
                     <p className="mb-4 font-semibold text-indigo-500 sm:text-4xl md:mb-12 md:text-5xl">
