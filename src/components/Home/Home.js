@@ -1,41 +1,9 @@
 import React from "react";
-import axios from "axios";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import Photo from "./Photo";
 import Header from "../header/Header";
+import Photo from "./Photo";
 
 const Home = () => {
-  // Nasa API key
-  const apiKey = process.env.REACT_APP_NASA_API_KEY;
-
-  // Nasaから取得したデータを格納するためのstate
-  const [data, setData] = useState([]);
-  const [errorStatus, setErrorStatus] = useState(false);
-
-
-    // Nasa APIを叩くための関数
-    const fetchData = async () => {
-        try {
-            // Nasa APIを叩いて、取得したデータを格納
-            const result = await axios.get("https://api.nasa.gov/planetary/apod", {
-                params: {
-                    api_key: apiKey,
-                    date: "2023-11-30", // 入力された日付を使用
-                },
-            });
-            setErrorStatus(false);
-            setData(result.data);
-        } catch (error) {
-            setErrorStatus(true);
-        }
-    };
-    // 初回アクセス時にfetchData関数を一度だけ実行
-    React.useEffect(() => {
-        if (data.length === 0) {
-            fetchData();
-        }
-    }, );
 
     return (
         <>
@@ -47,7 +15,8 @@ const Home = () => {
                         Welcome to Space
                     </p>
 
-                    {errorStatus && <Photo data={data} />}
+                    <Photo />
+
                     <div className="flex w-full flex-col gap-2.5 sm:flex-row sm:justify-center">
                         <Link to="/apod">
                             <button className="inline-block rounded-lg bg-indigo-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">

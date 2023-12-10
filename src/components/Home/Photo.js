@@ -1,16 +1,14 @@
 import React from "react";
+import NASA from './nasa-Yj1M5riCKk4-unsplash.jpg'
 
-const Photo = (data) => {
+const Photo = () => {
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
-      <p className="mb-2 font-semibold text-indigo-500 md:mb-3 lg:text-lg">
-        {data.data.title}
-      </p>
       <div className="relative mb-6 overflow-hidden rounded-lg bg-gray-50 shadow-lg md:mb-8">
         <img
-          src={data.data.url}
+          src={NASA}
           loading="lazy"
-          alt={data.data.title}
+          alt='宇宙の写真'
           className="h-2/6 w-3/6  object-center mx-auto"
         />
       </div>
