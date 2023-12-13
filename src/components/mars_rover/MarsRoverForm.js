@@ -27,9 +27,9 @@ const MarsRoverForm = ({ sol, camera, setPages, setCamera, fetchData }) => {
     return (
         <div className='right-20'>
             <div className='flex flex-col sm:flex-row items-center'>
-                <label className='ml-20 font-sans' htmlFor="pages">Max Pages:</label>
+                <label className='ml-20 font-sans font-bold' htmlFor="pages">Max Pages:</label>
                 <input min='1' max='25' type="number" placeholder='10' className="ml-5 rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10 text-right" id="pages" value={sol} onChange={(e) => setPages(e.target.value)} />
-                <label className="ml-20 font-sans" htmlFor="camera">Camera:</label>
+                <label className="ml-20 font-sans font-bold" htmlFor="camera">Camera:</label>
                 <select id="camera" className="ml-5 rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10" value={camera} onChange={(e) => setCamera(e.target.value)}>
                     {cameras.map((camera) => (
                         <option key={camera.name} value={camera.name}>
