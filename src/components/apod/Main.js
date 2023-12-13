@@ -29,12 +29,13 @@ function Main() {
                 },
                 responseType: "json",
             });
-    
+            console.clear()
             setErrorStatus(false);
             setData(response.data);
         } catch (error) {
             setData([]);
             setErrorStatus(true);
+            console.clear();
         }
     };
 

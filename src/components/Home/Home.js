@@ -4,7 +4,7 @@ import Header from "../header/Header";
 import Photo from "./Photo";
 
 const Home = () => {
-
+    console.clear()
     return (
         <>
         <Header />

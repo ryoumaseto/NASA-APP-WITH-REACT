@@ -19,10 +19,11 @@ const MarsRover = () => {
             const result = await axios(
                 `https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?sol=${sol}&camera=${camera}&api_key=${apiKey}&page=1&per_page=${pages}`
             );
-
+            console.clear()
             setPhotos(result.data.photos);
         } catch (error) {
             setErrorStatus(true);
+            console.clear()
         }
     };
 
