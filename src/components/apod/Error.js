@@ -10,6 +10,8 @@ function Error() {
         </div>
           <h2 className="mb-2 text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4">データの取得に失敗しました。</h2>
           <p className="text-gray-500 sm:text-lg">代わりに僕の隣で眠る猫をお見せします。再度検索して下さい</p>
+          <p className="text-gray-500 sm:text-lg">*1995/0616 ~ 本日の期間でで検索してください</p>
+
       </div>
     );
 }
